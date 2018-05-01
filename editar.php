@@ -24,7 +24,7 @@
       <div class="contenido">
         <h2>Editar Contactos</h2>
 
-        <form action="actualizar.php" method="post">
+        <form action="actualizar.php" method="get">
             <?php while($registro = $resultado->fetch_assoc() )  { ?>
 
                 <div class="campo">
@@ -33,10 +33,10 @@
                 </div>
                 <div class="campo">
                     <label for="numero">Numero</label>
-                    <input type="text" value="<?php echo $registro['telefono'];?>" name="numero" id="numero" placeholder="Numero"> 
+                    <input type="text" value="<?php echo $registro['telefono'];?>" name="telefono" id="telefono" placeholder="Numero"> 
                 </div>
-                <input type="submit" id="agregar" value="Editar">
-
+                <input type="hidden" name="id" value="<?php echo $registro['id']; ?>"> <!-- envia id pero sin mostrarlo-->
+                <input type="submit" id="agregar" value="Modificar">
             <?php }; ?>
         </form>
       </div> <!-- .contenido -->
